@@ -5,6 +5,7 @@ pipeline {
         stage('Checkout code') {
             steps {
                 // Checkout code from GitHub and specify the branch
+                echo Checkout code from GitHub and specify the branch
                 git branch: 'main', url: 'https://github.com/HSGeorgiev/JenkinsSeleniumWebDriver_08_01'
             }
         }
@@ -21,6 +22,7 @@ pipeline {
         stage('Restore dependencies') {
             steps {
                 // Restore dependencies using the solution file
+                echo Restore dependencies using the solution file
                 bat 'dotnet restore SeleniumBasicExercise.sln'
             }
         }
