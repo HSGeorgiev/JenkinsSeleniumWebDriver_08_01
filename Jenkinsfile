@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout code') {
             steps {
                 // Checkout code from GitHub and specify the branch
-                echo Checkout code from GitHub and specify the branch
+                echo '**************  Checkout code from GitHub and specify the branch  **************'
                 git branch: 'main', url: 'https://github.com/HSGeorgiev/JenkinsSeleniumWebDriver_08_01'
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Restore dependencies') {
             steps {
                 // Restore dependencies using the solution file
-                echo Restore dependencies using the solution file
+                echo '**************   Restore dependencies using the solution file   **************'
                 bat 'dotnet restore SeleniumBasicExercise.sln'
             }
         }
@@ -30,6 +30,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the project using the solution file
+                echo '**************   Build the project using the solution file   **************'
                 bat 'dotnet build SeleniumBasicExercise.sln --configuration Release'
             }
         }
@@ -37,6 +38,7 @@ pipeline {
         stage('Run tests TestProjects1') {
             steps {
                 // Run tests using the solution file
+                echo '**************   Run tests using the solution file   **************'
                 bat 'dotnet test TestProject1/TestProject1.csproj --logger "trx;LogFileName=TestResults.trx"'
             }
         }
@@ -44,6 +46,7 @@ pipeline {
                 stage('Run tests TestProjects2') {
             steps {
                 // Run tests using the solution file
+                echo '**************   Run tests using the solution file   **************'
                 bat 'dotnet test TestProject2/TestProject2.csproj --logger "trx;LogFileName=TestResults.trx"'
             }
         }
@@ -51,6 +54,7 @@ pipeline {
                 stage('Run tests TestProjects3') {
             steps {
                 // Run tests using the solution file
+                echo '**************   Run tests using the solution file   **************'
                 bat 'dotnet test TestProject3/TestProject3.csproj --logger "trx;LogFileName=TestResults.trx"'
             }
         }
